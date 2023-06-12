@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-image: url(../assests/jamie-street-33oxtOMk6Ac-unsplash.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}

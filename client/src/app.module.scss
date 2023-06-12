@@ -1,0 +1,162 @@
+@use './styles.module.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Catamaran:wght@600&family=Cinzel+Decorative:wght@700&family=Racing+Sans+One&family=Righteous&display=swap');
+
+.header_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header {
+  color: white;
+  font-family: $font-catmaran;
+  text-align: center;
+  font-size: clamp(2rem, 5vw + 4%, 2rem);
+  letter-spacing: $letter-space-medium;
+}
+.envelop {
+  fill: white;
+  width: 30px;
+  height: 30px;
+}
+.error {
+  margin: -0.4rem 0;
+  color: firebrick;
+  font-family: $font-bruno;
+  text-align: center;
+}
+
+button:disabled {
+  opacity: 0.95;
+}
+
+.form {
+  background-color: rgb(160, 141, 160);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 40dvw;
+  height: 70dvh;
+  input {
+    margin-top: 0.4rem;
+  }
+  @include box-shadow(10px, 10px, 8px, rgba(0, 0, 0, 0.2));
+}
+.submit_btn {
+  width: 50%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  background-color: rgb(65, 49, 65);
+  width: 60%;
+  border-radius: 5px;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: $letter-space-medium;
+  font-family: $font-bruno;
+  color: $font-color;
+  font-size: clamp(1rem, 1vw + 4%, 2rem);
+  border: 2px solid rgb(67, 67, 184);
+  padding-right: 30px;
+
+  &::placeholder {
+    color: white;
+    font-size: clamp(1rem, 1vw + 4%, 2rem);
+    letter-spacing: $letter-space-medium;
+    font-family: $font-catmaran;
+  }
+}
+input.input_error {
+  border-color: #fc8181;
+}
+textarea {
+  width: 60%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  @include box-shadow(10px, 10px, 8px, rgba(0, 0, 0, 0.2));
+  font-family: $font-race;
+  letter-spacing: $letter-space-medium;
+  outline: none;
+  color: rgb(65, 49, 65);
+  font-size: clamp(1rem, 1vw + 4%, 2rem);
+  padding-inline-start: 0.5rem;
+
+  &::placeholder {
+    font-size: clamp(1rem, 1vw + 4%, 2rem);
+    letter-spacing: $letter-space-medium;
+  }
+}
+button {
+  font-family: $font-cinzel;
+  letter-spacing: $letter-space-small;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  color: rgb(65, 49, 65);
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out,
+    box-shadow 300ms ease-in-out, transform 300ms ease-in-out;
+  padding: 0.4rem 0.6rem;
+  &:hover {
+    cursor: pointer;
+    background-color: darken(rgb(65, 49, 65), $amount: 0.1);
+    color: white;
+    @include box-shadow(8px, 8px, 8px, rgba(0, 0, 0, 0.2));
+    transform: translateY(-2px);
+  }
+}
+//
+// animaton
+.myAnimatedEnvelop {
+  animation: envelopeAnimation 2s ease-in-out forwards;
+}
+
+@keyframes envelopeAnimation {
+  0% {
+    transform: rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: rotate(20deg) translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-20deg) translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: rotate(20deg) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-20deg) translateX(40vw);
+    opacity: 0;
+  }
+}
+
+//media queries
+@include sm {
+  .form {
+    width: 80dvw;
+    height: 80dvh;
+  }
+  input {
+    width: 90%;
+  }
+  textarea {
+    width: 90%;
+  }
+  .header {
+    padding: 0;
+  }
+}
+@include md {
+  .form {
+    width: 70dvw;
+  }
+}

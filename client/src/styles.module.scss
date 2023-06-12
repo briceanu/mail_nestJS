@@ -1,0 +1,43 @@
+@mixin box-shadow($offset-x, $offset-y, $blur-radius, $color) {
+  box-shadow: $offset-x $offset-y $blur-radius $color;
+  border-radius: 7px;
+}
+//sizes
+$letter-space-medium: 0.06rem;
+$letter-space-small: 0.02rem;
+
+//colors
+$font-color: white;
+
+//font-families
+$font-cinzel: 'Cinzel Decorative', cursive;
+$font-catmaran: 'Catamaran', sans-serif;
+$font-bruno: 'Bruno Ace SC', cursive;
+$font-race: 'Racing Sans One', cursive;
+
+//media queries
+$break-points: (
+  'xs': 0,
+  'sm': 480px,
+  'md': 720px,
+  'lg': 960px,
+  'xg': 1200px,
+);
+
+@mixin xs {
+  @media (min-width: map-get($break-points,xs)) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: map-get($break-points,sm)) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: map-get($break-points,md)) {
+    @content;
+  }
+}
